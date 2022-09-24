@@ -1,0 +1,130 @@
+volume mapping
+
+docker run -e HUB_HOST=192.168.1.2 -e MODULE=testng.xml -v C:/Framework/flight/output:/usr/share/udemy/test-output intercityashwin/selenium-docker
+
+regular execution
+
+docker run -e HUB_HOST=192.168.1.2 -e MODULE=testng.xml intercityashwin/selenium-docker
+
+
+build a docker image with name selenium-docker (doker file is present in same directory)
+
+docker build -t=intercityashwin/selenium-docker .
+
+
+
+
+build project and get target folder
+
+mvn clean package -DskipTests
+
+
+
+sclaing up the instances for parallel execution
+docker-compose up --scale chrome=2 --scale firefox=2
+
+
+
+jenkins pass
+
+2f4394433ed44f6b95dce4056573f615
+
+
+docker run -p 8080:8080 -p 50000:50000 -v "C:/Framework/jenkinsDocker:/var/jenkins_home" jenkins/jenkins:lts
+docker run -p 8080:8080 -p 50000:50000 -v "C:/Framework/jenkinsDocker:/var/jenkins_home" jenkins/jenkins:2.150.2
+
+
+java -jar agent.jar -jnlpUrl http://localhost:8080/computer/DOCKER1/slave-agent.jnlp -secret 2357c80d4a38dbbed3acfaed5481c82dd550ee1d54be083cba8f55226dceff66 -workDir "C:/Framework/jenkinsSlave"
+
+
+
+docker run -p 8080:8080 -p 50000:50000 -v "C:\Users\Admin\jenkinsSlave:/var/jenkins_home" jenkins/jenkins:2.150.2
+put slave in any admin folder as it needs admins credentials
+
+ef947861b444425b8acc86a8e255564c
+
+
+--------------------------------------------------
+
+docker run -p 8080:8080 -p 50000:50000 -v "C:\Users\Admin\jenkinsvolmap:/var/jenkins_home" jenkins/jenkins:2.150.2
+68799fc342924256a7a8fdc47292ae0f
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+docker run -p 8080:8080 -p 50000:50000 -v C:\Users\Admin\jenkins:/var/jenkins_home jenkins/jenkins:2.150.2
+d62dd698daf34eefbfa0287a052c30d2
+
+
+d76a7f2c32d74a39a620b56e49d3fd3b
+docker run -p 8080:8080 -p 50000:50000 -v "C:\Users\Admin\jenkins:/var/jenkins_home" jenkins/jenkins:2.150.2
+
+
+
+
+----------------------
+
+docker run -p 8080:8080 -p 50000:50000 -v C:\Users\Admin\jenkins:/var/jenkins_home jenkins/jenkins:lts
+774fe8e177f946408cb0507ba3d7485c
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+bbe2479980a249d18de1da330c6ead70
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+32d6f0f9b4294e1b8c4df4608cd6b7f5
+
+
+653a1f2ef8324d6aa54ad4ac2472186a
+
+
+
+
+
+
+
+
+
+
+eadab37a4bd64408b379c4d5191cc40d
+
+----------------
+
+
+
+e1bd49f45ca34796ad53ee6ecf6a7820
+
+
+
+
+
+
+
+
+
+
+
+
+================================================================================
+
+docker run -p 8080:8080 -p 50000:50000 -v C:\Users\Admin\jenkins:/var/jenkins_home jenkins/jenkins:2.150.2
+d62dd698daf34eefbfa0287a052c30d2
+
+docker run -p 8080:8080 -p 50000:50000 -v C:\Users\Admin\jenkins2C:/var/jenkins_home jenkins/jenkins:lts
