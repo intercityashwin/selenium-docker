@@ -19,9 +19,22 @@ pipeline {
 			    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     //sh
 			        bat "docker login --username=${user} --password=${pass}"
-			        bat "docker push intercityashwin/selenium-docker:latest"
-			        bat "docker-compose up"
 			    }
+            }
+        }
+        stage('Start Grid') {
+            steps {
+                    bat "docker-compose up -d hub chrome firefox"
+            }
+        }
+        stage('Run Test') {
+            steps {
+                    bat "docker-compose up search-module"
+            }
+        }
+        stage('Stop Grid stage') {
+            steps {
+                    bat "docker-compose down"
             }
         }
     }
