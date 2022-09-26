@@ -20,8 +20,25 @@ pipeline {
                     //sh
 			        bat "docker login --username=${user} --password=${pass}"
 			        bat "docker push intercityashwin/selenium-docker:latest"
-			    }                           
+			    }
+            }
+        }
+        stage('Start Grid') {
+            steps {
+                    bat "docker compose up -d hub chrome firefox"
+                }
+        }
+        stage('Run Test') {
+            steps {
+                    bat "docker compose up search-module"
+                }
+        }
+        post{
+            always{
+                archiveArifacts artifacts: 'output/**'
+                bat "docker compose down"
             }
         }
     }
+
 }
