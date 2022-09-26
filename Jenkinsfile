@@ -34,10 +34,4 @@ pipeline {
                 }
             }
         }
-        post{
-            always{
-                archiveArifacts artifacts: 'output/**'
-                bat "docker-compose down"
-            }
-        }
 }
