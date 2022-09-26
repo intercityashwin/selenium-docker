@@ -32,6 +32,7 @@ pipeline {
             steps {
                     bat "docker compose up search-module"
                 }
+            }
         }
         post{
             always{
@@ -39,6 +40,4 @@ pipeline {
                 bat "docker compose down"
             }
         }
-    }
-
 }
