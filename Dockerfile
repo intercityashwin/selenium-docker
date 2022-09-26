@@ -6,4 +6,5 @@ ADD target/selenium-docker-tests.jar selenium-docker-tests.jar
 ADD target/libs libs
 ADD testng.xml testng.xml
 ADD healthcheck.sh healthcheck.sh
+RUN dos2unix healthcheck.sh
 ENTRYPOINT sh healthcheck.sh
